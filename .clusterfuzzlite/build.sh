@@ -1,8 +1,8 @@
 #!/bin/bash
-find . -name "*.c" -exec $CC $CFLAGS -I./src -c {} \;
-find . -name "*.o" -exec cp {} . \;
+for file in "tiny-json.c"; do
+  $CC $CFLAGS -c ${file}
+done
 
-rm -f ./test*.o
 llvm-ar rcs libfuzz.a *.o
 
 
